@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View } from 'react-native';
-import { TextInput, Button } from 'react-native-paper';
+import { Button, TextInput } from 'react-native-paper';
+import { CosmicColors } from '../theme/colors';
 
 interface AddTaskProps {
   onAdd: (description: string) => void;
@@ -26,16 +27,33 @@ export default function AddTask({ onAdd }: AddTaskProps) {
           mode="outlined"
           dense
           testID="task-input"
+          outlineColor={CosmicColors.inputBorder}
+          activeOutlineColor={CosmicColors.primaryLight}
+          textColor={CosmicColors.textPrimary}
+          style={{ backgroundColor: CosmicColors.inputBg }}
+          theme={{ colors: { onSurfaceVariant: CosmicColors.textSecondary } }}
         />
       </View>
-      <Button
-        mode="contained"
-        onPress={handleAdd}
-        disabled={!description.trim()}
-        testID="add-button"
-      >
-        Add
-      </Button>
+      <View className="pt-2">
+        <Button
+          mode="contained"
+          onPress={handleAdd}
+          disabled={!description.trim()}
+          testID="add-button"
+          buttonColor="#A78BFA"
+          textColor={CosmicColors.textPrimary}
+          style={{ borderRadius: 10 }}
+          contentStyle={{ height: 42, justifyContent: 'center' }}
+          theme={{
+            colors: {
+              surfaceDisabled: '#DDD6FE',
+              onSurfaceDisabled: '#8B5CF6',
+            },
+          }}
+        >
+          Add
+        </Button>
+      </View>
     </View>
   );
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { FlatList, View } from 'react-native';
 import { Checkbox, IconButton, List, Text } from 'react-native-paper';
+import { CosmicColors } from '../theme/colors';
 import { Task } from '../types/Task';
 
 interface TaskListProps {
@@ -16,15 +17,40 @@ export default function TaskList({ tasks, onToggle, onDelete }: TaskListProps) {
       keyExtractor={(item) => item.id}
       contentContainerStyle={{ paddingHorizontal: 16, paddingBottom: 24 }}
       ListEmptyComponent={
-        <Text className="text-center text-gray-400 mt-8">
+        <Text
+          className="text-center mt-8"
+          style={{ color: CosmicColors.textMuted }}
+        >
           No tasks yet. Add one above!
         </Text>
       }
       renderItem={({ item }) => (
-        <View className="bg-gray-50 rounded-xl border border-gray-200 mb-2">
+        <View
+          style={{
+            backgroundColor: CosmicColors.card,
+            borderColor: item.completed
+              ? CosmicColors.cardBorder
+              : CosmicColors.inputBorder,
+            borderWidth: 1,
+            borderRadius: 12,
+            marginBottom: 8,
+            shadowColor: CosmicColors.primary,
+            shadowOffset: { width: 0, height: 2 },
+            shadowOpacity: 0.25,
+            shadowRadius: 4,
+            elevation: 4,
+          }}
+        >
           <List.Item
             title={item.description}
-            titleStyle={item.completed ? { textDecorationLine: 'line-through', color: '#9ca3af' } : undefined}
+            titleStyle={
+              item.completed
+                ? {
+                    textDecorationLine: 'line-through',
+                    color: CosmicColors.textMuted,
+                  }
+                : { color: CosmicColors.textPrimary }
+            }
             onPress={() => onToggle(item.id)}
             left={() => (
               <View className="ml-3 -mr-3 justify-center">
@@ -32,6 +58,8 @@ export default function TaskList({ tasks, onToggle, onDelete }: TaskListProps) {
                   testID={`toggle-${item.id}`}
                   status={item.completed ? 'checked' : 'unchecked'}
                   onPress={() => onToggle(item.id)}
+                  color={CosmicColors.primaryLight}
+                  uncheckedColor={CosmicColors.textMuted}
                 />
               </View>
             )}
@@ -39,9 +67,13 @@ export default function TaskList({ tasks, onToggle, onDelete }: TaskListProps) {
               <IconButton
                 testID={`delete-${item.id}`}
                 icon="trash-can-outline"
-                iconColor="#ef4444"
+                iconColor={CosmicColors.danger}
                 size={20}
                 onPress={() => onDelete(item.id)}
+                style={{
+                  backgroundColor: 'rgba(239,68,68,0.10)',
+                  borderRadius: 8,
+                }}
               />
             )}
           />
