@@ -1,13 +1,14 @@
 import React from 'react';
-import { FlatList } from 'react-native';
-import { List, Text } from 'react-native-paper';
+import { FlatList, View } from 'react-native';
+import { Checkbox, List, Text } from 'react-native-paper';
 import { Task } from '../types/Task';
 
 interface TaskListProps {
   tasks: Task[];
+  onToggle: (id: string) => void;
 }
 
-export default function TaskList({ tasks }: TaskListProps) {
+export default function TaskList({ tasks, onToggle }: TaskListProps) {
   return (
     <FlatList
       data={tasks}
@@ -19,10 +20,22 @@ export default function TaskList({ tasks }: TaskListProps) {
         </Text>
       }
       renderItem={({ item }) => (
-        <List.Item
-          title={item.description}
-          titleStyle={item.completed ? { textDecorationLine: 'line-through', color: '#9ca3af' } : undefined}
-        />
+        <View className="bg-gray-50 rounded-xl border border-gray-200 mb-2">
+          <List.Item
+            title={item.description}
+            titleStyle={item.completed ? { textDecorationLine: 'line-through', color: '#9ca3af' } : undefined}
+            onPress={() => onToggle(item.id)}
+            left={() => (
+              <View className="ml-3 -mr-3 justify-center">
+                <Checkbox.Android
+                  testID={`toggle-${item.id}`}
+                  status={item.completed ? 'checked' : 'unchecked'}
+                  onPress={() => onToggle(item.id)}
+                />
+              </View>
+            )}
+          />
+        </View>
       )}
     />
   );

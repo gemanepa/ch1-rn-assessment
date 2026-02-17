@@ -60,4 +60,65 @@ describe('useTasks hook', () => {
     expect(result.current.tasks[0].description).toBe('Second');
     expect(result.current.tasks[1].description).toBe('First');
   });
+
+  it('toggles a task from incomplete to complete', () => {
+    const { result } = renderHook(() => useTasks());
+
+    act(() => {
+      result.current.addTask('Buy groceries');
+    });
+
+    const id = result.current.tasks[0].id;
+
+    act(() => {
+      result.current.toggleTask(id);
+    });
+
+    expect(result.current.tasks[0].completed).toBe(true);
+  });
+
+  it('toggles a task from complete back to incomplete', () => {
+    const { result } = renderHook(() => useTasks());
+
+    act(() => {
+      result.current.addTask('Buy groceries');
+    });
+
+    const id = result.current.tasks[0].id;
+
+    act(() => {
+      result.current.toggleTask(id);
+    });
+    act(() => {
+      result.current.toggleTask(id);
+    });
+
+    expect(result.current.tasks[0].completed).toBe(false);
+  });
+
+  it('only toggles the targeted task', () => {
+    const now = jest.spyOn(Date, 'now');
+    now.mockReturnValueOnce(1000).mockReturnValueOnce(2000);
+
+    const { result } = renderHook(() => useTasks());
+
+    act(() => {
+      result.current.addTask('Task one');
+    });
+    act(() => {
+      result.current.addTask('Task two');
+    });
+
+    // tasks are prepended: [Task two (id:'2000'), Task one (id:'1000')]
+    const idOfTaskOne = result.current.tasks[1].id;
+
+    act(() => {
+      result.current.toggleTask(idOfTaskOne);
+    });
+
+    expect(result.current.tasks[1].completed).toBe(true);
+    expect(result.current.tasks[0].completed).toBe(false);
+
+    now.mockRestore();
+  });
 });

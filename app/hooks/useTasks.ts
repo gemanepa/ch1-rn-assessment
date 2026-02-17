@@ -13,5 +13,13 @@ export default function useTasks() {
     setTasks((prev) => [newTask, ...prev]);
   };
 
-  return { tasks, addTask };
+  const toggleTask = (id: string) => {
+    setTasks((prev) =>
+      prev.map((task) =>
+        task.id === id ? { ...task, completed: !task.completed } : task
+      )
+    );
+  };
+
+  return { tasks, addTask, toggleTask };
 }

@@ -6,13 +6,13 @@ import TaskList from './components/TaskList';
 import useTasks from './hooks/useTasks';
 
 export default function Index() {
-  const { tasks, addTask } = useTasks();
+  const { tasks, addTask, toggleTask } = useTasks();
 
   return (
     <SafeAreaView className="flex-1 bg-white">
       <Header />
       <AddTask onAdd={addTask} />
-      <TaskList tasks={tasks} />
+      <TaskList tasks={tasks} onToggle={toggleTask} />
     </SafeAreaView>
   );
 }

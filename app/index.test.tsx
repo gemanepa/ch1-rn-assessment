@@ -63,4 +63,21 @@ describe('Index screen', () => {
     expect(screen.getByText('Task one')).toBeTruthy();
     expect(screen.getByText('Task two')).toBeTruthy();
   });
+
+  it('marks a task as complete when its checkbox is pressed', () => {
+    const now = jest.spyOn(Date, 'now').mockReturnValue(1000);
+
+    render(<Index />);
+
+    const input = screen.getByTestId('task-input');
+    fireEvent.changeText(input, 'Buy groceries');
+    fireEvent.press(screen.getByTestId('add-button'));
+
+    fireEvent.press(screen.getByTestId('toggle-1000'));
+
+    const title = screen.getByText('Buy groceries');
+    expect(JSON.stringify(title.props.style)).toContain('line-through');
+
+    now.mockRestore();
+  });
 });
