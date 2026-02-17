@@ -6,7 +6,7 @@ import Background from './components/Background';
 import Header from './components/Header';
 import TaskList from './components/TaskList';
 import useTasks from './hooks/useTasks';
-import { CosmicColors } from './theme/colors';
+import { CosmicColors } from '../theme/colors';
 
 export default function Index() {
   const { tasks, addTask, toggleTask, deleteTask } = useTasks();

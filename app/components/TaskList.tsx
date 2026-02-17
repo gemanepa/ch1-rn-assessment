@@ -1,8 +1,8 @@
 import React from 'react';
 import { FlatList, View } from 'react-native';
 import { Checkbox, IconButton, List, Text } from 'react-native-paper';
-import { CosmicColors } from '../theme/colors';
-import { Task } from '../types/Task';
+import { CosmicColors } from '../../theme/colors';
+import { Task } from '../../types/Task';
 
 interface TaskListProps {
   tasks: Task[];

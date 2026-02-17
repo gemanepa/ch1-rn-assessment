@@ -1,4 +1,4 @@
-import { CosmicColors, CosmicTheme } from '../theme/colors';
+import { CosmicColors, CosmicTheme } from './colors';
 
 describe('CosmicColors', () => {
   it('has all required tokens', () => {
