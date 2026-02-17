@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react-native';
-import Index from '../index';
+import Index from './index';
 
 describe('Index screen', () => {
   it('renders the Task Manager heading', () => {
