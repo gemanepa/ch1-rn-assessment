@@ -1,14 +1,15 @@
 import React from 'react';
 import { FlatList, View } from 'react-native';
-import { Checkbox, List, Text } from 'react-native-paper';
+import { Checkbox, IconButton, List, Text } from 'react-native-paper';
 import { Task } from '../types/Task';
 
 interface TaskListProps {
   tasks: Task[];
   onToggle: (id: string) => void;
+  onDelete: (id: string) => void;
 }
 
-export default function TaskList({ tasks, onToggle }: TaskListProps) {
+export default function TaskList({ tasks, onToggle, onDelete }: TaskListProps) {
   return (
     <FlatList
       data={tasks}
@@ -33,6 +34,15 @@ export default function TaskList({ tasks, onToggle }: TaskListProps) {
                   onPress={() => onToggle(item.id)}
                 />
               </View>
+            )}
+            right={() => (
+              <IconButton
+                testID={`delete-${item.id}`}
+                icon="trash-can-outline"
+                iconColor="#ef4444"
+                size={20}
+                onPress={() => onDelete(item.id)}
+              />
             )}
           />
         </View>

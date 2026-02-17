@@ -21,5 +21,9 @@ export default function useTasks() {
     );
   };
 
-  return { tasks, addTask, toggleTask };
+  const deleteTask = (id: string) => {
+    setTasks((prev) => prev.filter((task) => task.id !== id));
+  };
+
+  return { tasks, addTask, toggleTask, deleteTask };
 }

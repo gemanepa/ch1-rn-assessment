@@ -96,6 +96,48 @@ describe('useTasks hook', () => {
     expect(result.current.tasks[0].completed).toBe(false);
   });
 
+  it('deletes a task by id', () => {
+    const { result } = renderHook(() => useTasks());
+
+    act(() => {
+      result.current.addTask('Buy groceries');
+    });
+
+    const id = result.current.tasks[0].id;
+
+    act(() => {
+      result.current.deleteTask(id);
+    });
+
+    expect(result.current.tasks).toHaveLength(0);
+  });
+
+  it('only deletes the targeted task', () => {
+    const now = jest.spyOn(Date, 'now');
+    now.mockReturnValueOnce(1000).mockReturnValueOnce(2000);
+
+    const { result } = renderHook(() => useTasks());
+
+    act(() => {
+      result.current.addTask('Task one');
+    });
+    act(() => {
+      result.current.addTask('Task two');
+    });
+
+    // tasks are prepended: [Task two (id:'2000'), Task one (id:'1000')]
+    const idOfTaskOne = result.current.tasks[1].id;
+
+    act(() => {
+      result.current.deleteTask(idOfTaskOne);
+    });
+
+    expect(result.current.tasks).toHaveLength(1);
+    expect(result.current.tasks[0].description).toBe('Task two');
+
+    now.mockRestore();
+  });
+
   it('only toggles the targeted task', () => {
     const now = jest.spyOn(Date, 'now');
     now.mockReturnValueOnce(1000).mockReturnValueOnce(2000);
