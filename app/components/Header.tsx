@@ -1,0 +1,10 @@
+import React from 'react';
+import { Text } from 'react-native-paper';
+
+export default function Header() {
+  return (
+    <Text variant="headlineMedium" className="px-4 pt-6 pb-2 font-bold">
+      Task Manager
+    </Text>
+  );
+}
