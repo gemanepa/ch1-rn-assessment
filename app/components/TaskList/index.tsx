@@ -1,6 +1,5 @@
 import React from 'react';
 import { FlatList } from 'react-native';
-
 import { Task } from '@/types/Task';
 import TaskEmpty from '@/app/components/TaskList/TaskEmpty';
 import TaskItem from '@/app/components/TaskList/TaskItem';

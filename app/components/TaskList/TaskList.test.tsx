@@ -1,6 +1,5 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react-native';
-
 import TaskList from '@/app/components/TaskList';
 import { Task } from '@/types/Task';
 

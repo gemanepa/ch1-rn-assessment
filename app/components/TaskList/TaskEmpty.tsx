@@ -2,7 +2,6 @@ import React from 'react';
 import { View } from 'react-native';
 import { Text } from 'react-native-paper';
 import Svg, { Circle, G, Line, Polygon, Rect } from 'react-native-svg';
-
 import { CosmicColors } from '@/theme/colors';
 
 export default function TaskEmpty() {

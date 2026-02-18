@@ -1,7 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
 import { Checkbox, IconButton, List } from 'react-native-paper';
-
 import { CosmicColors } from '@/theme/colors';
 import { Task } from '@/types/Task';
 
