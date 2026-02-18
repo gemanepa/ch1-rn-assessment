@@ -1,7 +1,7 @@
+import { CosmicColors } from '@/theme/colors';
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import Svg, { Circle, Line, Polygon } from 'react-native-svg';
-import { CosmicColors } from '@/theme/colors';
 
 export default function Background() {
   return (
@@ -176,7 +176,7 @@ export default function Background() {
       {/* Layer 7: Cross/plus sparkles */}
       {[
         { cx: 110, cy: 160 },
-        { cx: 280, cy: 440 },
+        { cx: 280, cy: 470 },
         { cx: 55, cy: 800 },
       ].map(({ cx, cy }, i) => (
         <React.Fragment key={`sparkle-${i}`}>
