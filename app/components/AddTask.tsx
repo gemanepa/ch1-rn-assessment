@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View } from 'react-native';
 import { Button, TextInput } from 'react-native-paper';
-import { CosmicColors } from '../../theme/colors';
+import { CosmicColors } from '@/theme/colors';
 
 interface AddTaskProps {
   onAdd: (description: string) => void;

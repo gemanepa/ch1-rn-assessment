@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react-native';
-import TaskList from '../components/TaskList';
-import { Task } from '../../types/Task';
+import TaskList from '@/app/components/TaskList';
+import { Task } from '@/types/Task';
 
 describe('TaskList component', () => {
   it('renders empty state message when there are no tasks', () => {

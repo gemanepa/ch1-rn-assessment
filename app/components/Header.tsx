@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import { Text } from 'react-native-paper';
-import { CosmicColors } from '../../theme/colors';
+import { CosmicColors } from '@/theme/colors';
 
 export default function Header() {
   return (

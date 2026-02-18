@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import Svg, { Circle, Line, Polygon } from 'react-native-svg';
-import { CosmicColors } from '../../theme/colors';
+import { CosmicColors } from '@/theme/colors';
 
 export default function Background() {
   return (

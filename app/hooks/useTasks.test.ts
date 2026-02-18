@@ -1,5 +1,5 @@
 import { renderHook, act } from '@testing-library/react-native';
-import useTasks from '../hooks/useTasks';
+import useTasks from '@/app/hooks/useTasks';
 
 describe('useTasks hook', () => {
   it('starts with an empty task list', () => {

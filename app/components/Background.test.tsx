@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react-native';
-import Background from '../components/Background';
+import Background from '@/app/components/Background';
 
 describe('Background component', () => {
   it('renders without crashing', () => {

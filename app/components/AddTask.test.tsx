@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react-native';
-import AddTask from '../components/AddTask';
+import AddTask from '@/app/components/AddTask';
 
 describe('AddTask component', () => {
   it('renders the text input and Add button', () => {

@@ -1,12 +1,12 @@
 import React from 'react';
 import { View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import AddTask from './components/AddTask';
-import Background from './components/Background';
-import Header from './components/Header';
-import TaskList from './components/TaskList';
-import useTasks from './hooks/useTasks';
-import { CosmicColors } from '../theme/colors';
+import AddTask from '@/app/components/AddTask';
+import Background from '@/app/components/Background';
+import Header from '@/app/components/Header';
+import TaskList from '@/app/components/TaskList';
+import useTasks from '@/app/hooks/useTasks';
+import { CosmicColors } from '@/theme/colors';
 
 export default function Index() {
   const { tasks, addTask, toggleTask, deleteTask } = useTasks();
