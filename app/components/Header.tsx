@@ -10,7 +10,7 @@ export default function Header() {
         variant="labelSmall"
         style={{ color: CosmicColors.accent, letterSpacing: 3 }}
       >
-        COSMIC TASKS
+        CHAPTER ONE ASSESSMENT
       </Text>
       <Text variant="headlineLarge" style={{ fontWeight: '800' }}>
         <Text
