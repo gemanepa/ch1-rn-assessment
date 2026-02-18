@@ -3,10 +3,19 @@ import { CosmicColors, CosmicTheme } from './colors';
 describe('CosmicColors', () => {
   it('has all required tokens', () => {
     const requiredTokens = [
-      'background', 'surface', 'card', 'cardBorder',
-      'primary', 'primaryLight', 'accent',
-      'textPrimary', 'textSecondary', 'textMuted',
-      'danger', 'inputBg', 'inputBorder',
+      'background',
+      'surface',
+      'card',
+      'cardBorder',
+      'primary',
+      'primaryLight',
+      'accent',
+      'textPrimary',
+      'textSecondary',
+      'textMuted',
+      'danger',
+      'inputBg',
+      'inputBorder',
     ];
     requiredTokens.forEach((token) => {
       expect(CosmicColors).toHaveProperty(token);

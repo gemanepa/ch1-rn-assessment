@@ -1,9 +1,9 @@
-import { CosmicColors } from '@/theme/colors';
-import { Task } from '@/types/Task';
 import React from 'react';
 import { FlatList, View } from 'react-native';
 import { Checkbox, IconButton, List, Text } from 'react-native-paper';
 import Svg, { Circle, G, Line, Polygon, Rect } from 'react-native-svg';
+import { CosmicColors } from '@/theme/colors';
+import { Task } from '@/types/Task';
 
 interface TaskListProps {
   tasks: Task[];
@@ -21,58 +21,230 @@ export default function TaskList({ tasks, onToggle, onDelete }: TaskListProps) {
         <View className="items-center mt-8 px-4">
           <Svg width={160} height={160} viewBox="0 0 160 160">
             {/* Soft glow */}
-            <Circle cx="80" cy="82" r="52" fill={CosmicColors.primary} opacity={0.08} />
+            <Circle
+              cx="80"
+              cy="82"
+              r="52"
+              fill={CosmicColors.primary}
+              opacity={0.08}
+            />
 
             {/* Rocket — tilted 35° clockwise */}
             <G rotation={35} origin="80, 80">
               {/* Flame — outer */}
-              <Polygon points="71,108 80,134 89,108" fill={CosmicColors.accent} opacity={0.55} />
+              <Polygon
+                points="71,108 80,134 89,108"
+                fill={CosmicColors.accent}
+                opacity={0.55}
+              />
               {/* Flame — inner */}
-              <Polygon points="76,108 80,124 84,108" fill={CosmicColors.primary} opacity={0.45} />
+              <Polygon
+                points="76,108 80,124 84,108"
+                fill={CosmicColors.primary}
+                opacity={0.45}
+              />
 
               {/* Body */}
-              <Rect x="68" y="50" width="24" height="58" rx="4" fill={CosmicColors.surface} stroke={CosmicColors.primary} strokeWidth="1.5" />
+              <Rect
+                x="68"
+                y="50"
+                width="24"
+                height="58"
+                rx="4"
+                fill={CosmicColors.surface}
+                stroke={CosmicColors.primary}
+                strokeWidth="1.5"
+              />
 
               {/* Nose cone */}
-              <Polygon points="80,20 66,50 94,50" fill={CosmicColors.primary} opacity={0.9} />
+              <Polygon
+                points="80,20 66,50 94,50"
+                fill={CosmicColors.primary}
+                opacity={0.9}
+              />
 
               {/* Left fin */}
-              <Polygon points="68,86 52,112 68,108" fill={CosmicColors.primaryLight} opacity={0.7} />
+              <Polygon
+                points="68,86 52,112 68,108"
+                fill={CosmicColors.primaryLight}
+                opacity={0.7}
+              />
               {/* Right fin */}
-              <Polygon points="92,86 108,112 92,108" fill={CosmicColors.primaryLight} opacity={0.7} />
+              <Polygon
+                points="92,86 108,112 92,108"
+                fill={CosmicColors.primaryLight}
+                opacity={0.7}
+              />
 
               {/* Porthole ring */}
-              <Circle cx="80" cy="68" r="9" fill={CosmicColors.card} stroke={CosmicColors.primaryLight} strokeWidth="1.5" />
+              <Circle
+                cx="80"
+                cy="68"
+                r="9"
+                fill={CosmicColors.card}
+                stroke={CosmicColors.primaryLight}
+                strokeWidth="1.5"
+              />
               {/* Porthole glass */}
-              <Circle cx="80" cy="68" r="5.5" fill={CosmicColors.primary} opacity={0.85} />
+              <Circle
+                cx="80"
+                cy="68"
+                r="5.5"
+                fill={CosmicColors.primary}
+                opacity={0.85}
+              />
               {/* Porthole shine */}
-              <Circle cx="77" cy="65" r="1.5" fill={CosmicColors.card} opacity={0.7} />
+              <Circle
+                cx="77"
+                cy="65"
+                r="1.5"
+                fill={CosmicColors.card}
+                opacity={0.7}
+              />
             </G>
 
             {/* Sparkle — top left */}
-            <Line x1="32" y1="30" x2="32" y2="42" stroke={CosmicColors.primaryLight} strokeWidth="1.5" opacity={0.5} />
-            <Line x1="26" y1="36" x2="38" y2="36" stroke={CosmicColors.primaryLight} strokeWidth="1.5" opacity={0.5} />
-            <Line x1="27" y1="31" x2="37" y2="41" stroke={CosmicColors.primaryLight} strokeWidth="0.8" opacity={0.28} />
-            <Line x1="37" y1="31" x2="27" y2="41" stroke={CosmicColors.primaryLight} strokeWidth="0.8" opacity={0.28} />
+            <Line
+              x1="32"
+              y1="30"
+              x2="32"
+              y2="42"
+              stroke={CosmicColors.primaryLight}
+              strokeWidth="1.5"
+              opacity={0.5}
+            />
+            <Line
+              x1="26"
+              y1="36"
+              x2="38"
+              y2="36"
+              stroke={CosmicColors.primaryLight}
+              strokeWidth="1.5"
+              opacity={0.5}
+            />
+            <Line
+              x1="27"
+              y1="31"
+              x2="37"
+              y2="41"
+              stroke={CosmicColors.primaryLight}
+              strokeWidth="0.8"
+              opacity={0.28}
+            />
+            <Line
+              x1="37"
+              y1="31"
+              x2="27"
+              y2="41"
+              stroke={CosmicColors.primaryLight}
+              strokeWidth="0.8"
+              opacity={0.28}
+            />
 
             {/* Sparkle — bottom right */}
-            <Line x1="128" y1="118" x2="128" y2="130" stroke={CosmicColors.accent} strokeWidth="1.5" opacity={0.45} />
-            <Line x1="122" y1="124" x2="134" y2="124" stroke={CosmicColors.accent} strokeWidth="1.5" opacity={0.45} />
-            <Line x1="123" y1="119" x2="133" y2="129" stroke={CosmicColors.accent} strokeWidth="0.8" opacity={0.25} />
-            <Line x1="133" y1="119" x2="123" y2="129" stroke={CosmicColors.accent} strokeWidth="0.8" opacity={0.25} />
+            <Line
+              x1="128"
+              y1="118"
+              x2="128"
+              y2="130"
+              stroke={CosmicColors.accent}
+              strokeWidth="1.5"
+              opacity={0.45}
+            />
+            <Line
+              x1="122"
+              y1="124"
+              x2="134"
+              y2="124"
+              stroke={CosmicColors.accent}
+              strokeWidth="1.5"
+              opacity={0.45}
+            />
+            <Line
+              x1="123"
+              y1="119"
+              x2="133"
+              y2="129"
+              stroke={CosmicColors.accent}
+              strokeWidth="0.8"
+              opacity={0.25}
+            />
+            <Line
+              x1="133"
+              y1="119"
+              x2="123"
+              y2="129"
+              stroke={CosmicColors.accent}
+              strokeWidth="0.8"
+              opacity={0.25}
+            />
 
             {/* Floating circles */}
-            <Circle cx="138" cy="44" r="5" fill={CosmicColors.accent} opacity={0.18} />
-            <Circle cx="20" cy="100" r="3.5" fill={CosmicColors.primary} opacity={0.15} />
-            <Circle cx="142" cy="90" r="4" fill={CosmicColors.primaryLight} opacity={0.13} />
+            <Circle
+              cx="138"
+              cy="44"
+              r="5"
+              fill={CosmicColors.accent}
+              opacity={0.18}
+            />
+            <Circle
+              cx="20"
+              cy="100"
+              r="3.5"
+              fill={CosmicColors.primary}
+              opacity={0.15}
+            />
+            <Circle
+              cx="142"
+              cy="90"
+              r="4"
+              fill={CosmicColors.primaryLight}
+              opacity={0.13}
+            />
 
             {/* Star dots */}
-            <Circle cx="50" cy="22" r="2" fill={CosmicColors.primaryLight} opacity={0.55} />
-            <Circle cx="118" cy="32" r="1.5" fill={CosmicColors.accent} opacity={0.5} />
-            <Circle cx="22" cy="58" r="2" fill={CosmicColors.primary} opacity={0.45} />
-            <Circle cx="148" cy="64" r="1.5" fill={CosmicColors.primaryLight} opacity={0.4} />
-            <Circle cx="110" cy="140" r="2" fill={CosmicColors.accent} opacity={0.4} />
-            <Circle cx="38" cy="138" r="1.5" fill={CosmicColors.primaryLight} opacity={0.35} />
+            <Circle
+              cx="50"
+              cy="22"
+              r="2"
+              fill={CosmicColors.primaryLight}
+              opacity={0.55}
+            />
+            <Circle
+              cx="118"
+              cy="32"
+              r="1.5"
+              fill={CosmicColors.accent}
+              opacity={0.5}
+            />
+            <Circle
+              cx="22"
+              cy="58"
+              r="2"
+              fill={CosmicColors.primary}
+              opacity={0.45}
+            />
+            <Circle
+              cx="148"
+              cy="64"
+              r="1.5"
+              fill={CosmicColors.primaryLight}
+              opacity={0.4}
+            />
+            <Circle
+              cx="110"
+              cy="140"
+              r="2"
+              fill={CosmicColors.accent}
+              opacity={0.4}
+            />
+            <Circle
+              cx="38"
+              cy="138"
+              r="1.5"
+              fill={CosmicColors.primaryLight}
+              opacity={0.35}
+            />
           </Svg>
           <Text
             className="text-center mt-3"

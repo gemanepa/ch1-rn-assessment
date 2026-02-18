@@ -13,7 +13,9 @@ describe('TaskList component', () => {
     const tasks: Task[] = [
       { id: '1', description: 'Buy groceries', completed: false },
     ];
-    render(<TaskList tasks={tasks} onToggle={jest.fn()} onDelete={jest.fn()} />);
+    render(
+      <TaskList tasks={tasks} onToggle={jest.fn()} onDelete={jest.fn()} />,
+    );
     expect(screen.getByText('Buy groceries')).toBeTruthy();
   });
 
@@ -22,7 +24,9 @@ describe('TaskList component', () => {
       { id: '1', description: 'Task one', completed: false },
       { id: '2', description: 'Task two', completed: false },
     ];
-    render(<TaskList tasks={tasks} onToggle={jest.fn()} onDelete={jest.fn()} />);
+    render(
+      <TaskList tasks={tasks} onToggle={jest.fn()} onDelete={jest.fn()} />,
+    );
     expect(screen.getByText('Task one')).toBeTruthy();
     expect(screen.getByText('Task two')).toBeTruthy();
   });
@@ -31,7 +35,9 @@ describe('TaskList component', () => {
     const tasks: Task[] = [
       { id: '1', description: 'A task', completed: false },
     ];
-    render(<TaskList tasks={tasks} onToggle={jest.fn()} onDelete={jest.fn()} />);
+    render(
+      <TaskList tasks={tasks} onToggle={jest.fn()} onDelete={jest.fn()} />,
+    );
     expect(screen.queryByText('No tasks yet. Add one above!')).toBeNull();
   });
 
@@ -51,7 +57,9 @@ describe('TaskList component', () => {
     const tasks: Task[] = [
       { id: '1', description: 'Done task', completed: true },
     ];
-    render(<TaskList tasks={tasks} onToggle={jest.fn()} onDelete={jest.fn()} />);
+    render(
+      <TaskList tasks={tasks} onToggle={jest.fn()} onDelete={jest.fn()} />,
+    );
 
     const title = screen.getByText('Done task');
     expect(JSON.stringify(title.props.style)).toContain('line-through');
@@ -61,7 +69,9 @@ describe('TaskList component', () => {
     const tasks: Task[] = [
       { id: '1', description: 'Pending task', completed: false },
     ];
-    render(<TaskList tasks={tasks} onToggle={jest.fn()} onDelete={jest.fn()} />);
+    render(
+      <TaskList tasks={tasks} onToggle={jest.fn()} onDelete={jest.fn()} />,
+    );
 
     const title = screen.getByText('Pending task');
     expect(JSON.stringify(title.props.style)).not.toContain('line-through');
@@ -72,7 +82,9 @@ describe('TaskList component', () => {
       { id: '1', description: 'Task one', completed: false },
       { id: '2', description: 'Task two', completed: false },
     ];
-    render(<TaskList tasks={tasks} onToggle={jest.fn()} onDelete={jest.fn()} />);
+    render(
+      <TaskList tasks={tasks} onToggle={jest.fn()} onDelete={jest.fn()} />,
+    );
 
     expect(screen.getByTestId('delete-1')).toBeTruthy();
     expect(screen.getByTestId('delete-2')).toBeTruthy();

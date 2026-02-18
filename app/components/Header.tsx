@@ -12,12 +12,19 @@ export default function Header() {
       >
         COSMIC TASKS
       </Text>
-      <Text
-        variant="headlineLarge"
-        style={{ fontWeight: '800' }}
-      >
-        <Text variant="headlineLarge" style={{ color: CosmicColors.textPrimary, fontWeight: '800' }}>Task </Text>
-        <Text variant="headlineLarge" style={{ color: CosmicColors.primaryLight, fontWeight: '800' }}>Manager</Text>
+      <Text variant="headlineLarge" style={{ fontWeight: '800' }}>
+        <Text
+          variant="headlineLarge"
+          style={{ color: CosmicColors.textPrimary, fontWeight: '800' }}
+        >
+          Task{' '}
+        </Text>
+        <Text
+          variant="headlineLarge"
+          style={{ color: CosmicColors.primaryLight, fontWeight: '800' }}
+        >
+          Manager
+        </Text>
       </Text>
     </View>
   );
