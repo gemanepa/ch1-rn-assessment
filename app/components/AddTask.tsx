@@ -30,7 +30,7 @@ export default function AddTask({ onAdd }: AddTaskProps) {
           outlineColor={CosmicColors.inputBorder}
           activeOutlineColor={CosmicColors.primaryLight}
           textColor={CosmicColors.textPrimary}
-          style={{ backgroundColor: CosmicColors.inputBg }}
+          className="bg-cosmic-inputBg"
           theme={{ colors: { onSurfaceVariant: CosmicColors.textSecondary } }}
         />
       </View>
@@ -42,7 +42,7 @@ export default function AddTask({ onAdd }: AddTaskProps) {
           testID="add-button"
           buttonColor="#A78BFA"
           textColor={CosmicColors.textPrimary}
-          style={{ borderRadius: 4 }}
+          className="rounded-[4px]"
           contentStyle={{ height: 42, justifyContent: 'center' }}
           theme={{
             colors: {

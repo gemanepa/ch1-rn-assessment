@@ -16,7 +16,7 @@ export default function TaskList({ tasks, onToggle, onDelete }: TaskListProps) {
     <FlatList
       data={tasks}
       keyExtractor={(item) => item.id}
-      contentContainerStyle={{ paddingHorizontal: 16, paddingBottom: 24 }}
+      contentContainerClassName="px-4 pb-6"
       ListEmptyComponent={
         <View className="items-center mt-8 px-4">
           <Svg width={160} height={160} viewBox="0 0 160 160">
@@ -246,41 +246,18 @@ export default function TaskList({ tasks, onToggle, onDelete }: TaskListProps) {
               opacity={0.35}
             />
           </Svg>
-          <Text
-            className="text-center mt-3"
-            style={{
-              color: CosmicColors.textPrimary,
-              fontSize: 18,
-              fontWeight: '700',
-              letterSpacing: 0.3,
-            }}
-          >
+          <Text className="text-center mt-3 text-cosmic-textPrimary text-[18px] font-bold tracking-[0.3px]">
             No tasks yet
           </Text>
-          <Text
-            className="text-center mt-1"
-            style={{
-              color: CosmicColors.primary,
-              fontSize: 13,
-              fontWeight: '500',
-              letterSpacing: 0.5,
-              opacity: 0.7,
-            }}
-          >
+          <Text className="text-center mt-1 text-cosmic-primary text-[13px] font-medium tracking-[0.5px] opacity-70">
             Add one above to get started
           </Text>
         </View>
       }
       renderItem={({ item }) => (
         <View
+          className={`bg-cosmic-card border rounded-[4px] mb-2 ${item.completed ? 'border-cosmic-cardBorder' : 'border-cosmic-inputBorder'}`}
           style={{
-            backgroundColor: CosmicColors.card,
-            borderColor: item.completed
-              ? CosmicColors.cardBorder
-              : CosmicColors.inputBorder,
-            borderWidth: 1,
-            borderRadius: 4,
-            marginBottom: 8,
             shadowColor: CosmicColors.primary,
             shadowOffset: { width: 0, height: 2 },
             shadowOpacity: 0.25,
@@ -317,10 +294,7 @@ export default function TaskList({ tasks, onToggle, onDelete }: TaskListProps) {
                 iconColor={CosmicColors.danger}
                 size={20}
                 onPress={() => onDelete(item.id)}
-                style={{
-                  backgroundColor: 'rgba(239,68,68,0.10)',
-                  borderRadius: 8,
-                }}
+                className="bg-red-500/10 rounded-lg"
               />
             )}
           />

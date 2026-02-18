@@ -6,15 +6,14 @@ import Background from '@/app/components/Background';
 import Header from '@/app/components/Header';
 import TaskList from '@/app/components/TaskList';
 import useTasks from '@/app/hooks/useTasks';
-import { CosmicColors } from '@/theme/colors';
 
 export default function Index() {
   const { tasks, addTask, toggleTask, deleteTask } = useTasks();
 
   return (
-    <View style={{ flex: 1, backgroundColor: CosmicColors.background }}>
+    <View className="flex-1 bg-cosmic-bg">
       <Background />
-      <SafeAreaView style={{ flex: 1 }}>
+      <SafeAreaView className="flex-1">
         <Header />
         <AddTask onAdd={addTask} />
         <TaskList tasks={tasks} onToggle={toggleTask} onDelete={deleteTask} />
