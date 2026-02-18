@@ -1,50 +1,59 @@
-# Welcome to your Expo app 👋
+# Chapter One Assessment - Task Manager App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## Project Overview
 
-## Get started
+React Native Task Manager app built with Expo allowing users to add, complete, and delete tasks.
 
-1. Install dependencies
+## Screenshots
 
-   ```bash
-   npm install
-   ```
+| No Tasks | With Tasks |
+|----------|------------|
+| ![No tasks screen](assets/images/screenshot-notasks.jpg) | ![Tasks screen](assets/images/screenshot-with-tasks.jpg) |
 
-2. Start the app
+## Commands
 
-   ```bash
-   npx expo start
-   ```
+- `npm start` — start Expo dev server
+- `npm test` — run all tests with Jest
+- `npm run lint` — run ESLint
+- `npm run format` — format all files with Prettier
+- `npm run format:check` — check Prettier formatting without writing (CI-friendly)
 
-In the output, you'll find options to open the app in a
+## Tech Stack
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+- **Expo** (~54.0) with Expo Router for file-based routing
+- **React Native** (0.81) + **React** (19.1)
+- **TypeScript** with strict mode
+- **NativeWind** (v4) for Tailwind CSS styling
+- **React Native Paper** for Material Design UI components
+- **react-native-svg** for SVG background decorations
+- **Jest** + **React Native Testing Library** for testing
+- **Prettier** + **ESLint** for code formatting and linting
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## Project Structure
 
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
 ```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+├── app/
+│   ├── _layout.tsx            # Root layout with Stack navigator + PaperProvider
+│   ├── index.tsx              # Main screen composing Header, AddTask, TaskList
+│   ├── index.test.tsx         # Integration tests for the main screen
+│   ├── components/
+│   │   ├── AddTask.tsx        # Text input + button for adding tasks
+│   │   ├── AddTask.test.tsx   # Tests for AddTask component
+│   │   ├── Background.tsx     # Absolute SVG background with cosmic decorations
+│   │   ├── Background.test.tsx# Tests for Background component
+│   │   ├── Header.tsx         # App title heading with two-tone cosmic style
+│   │   ├── Header.test.tsx    # Tests for Header component
+│   │   └── TaskList/
+│   │       ├── index.tsx          # FlatList composing TaskEmpty and TaskItem
+│   │       ├── TaskEmpty.tsx      # Empty state illustration and message
+│   │       ├── TaskItem.tsx       # Single task row with checkbox and delete button
+│   │       └── TaskList.test.tsx  # Tests for TaskList component
+│   └── hooks/
+│       ├── useTasks.ts        # Custom hook managing task state and actions
+│       └── useTasks.test.ts   # Tests for useTasks hook
+├── theme/
+│   ├── colors.ts              # CosmicColors tokens + CosmicTheme (MD3LightTheme)
+│   └── colors.test.ts         # Tests for color tokens and theme
+└── types/
+    └── Task.ts                # Task interface (id, description, completed)
+```
