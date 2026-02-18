@@ -39,9 +39,9 @@ React Native Task Manager app built with Expo allowing users to add, complete, a
 │   ├── components/
 │   │   ├── AddTask.tsx        # Text input + button for adding tasks
 │   │   ├── AddTask.test.tsx   # Tests for AddTask component
-│   │   ├── Background.tsx     # Absolute SVG background with cosmic decorations
+│   │   ├── Background.tsx     # Absolute SVG background with theme decorations
 │   │   ├── Background.test.tsx# Tests for Background component
-│   │   ├── Header.tsx         # App title heading with two-tone cosmic style
+│   │   ├── Header.tsx         # App title heading with two-tone theme style
 │   │   ├── Header.test.tsx    # Tests for Header component
 │   │   └── TaskList/
 │   │       ├── index.tsx          # FlatList composing TaskEmpty and TaskItem
@@ -52,7 +52,7 @@ React Native Task Manager app built with Expo allowing users to add, complete, a
 │       ├── useTasks.ts        # Custom hook managing task state and actions
 │       └── useTasks.test.ts   # Tests for useTasks hook
 ├── theme/
-│   ├── colors.ts              # CosmicColors tokens + CosmicTheme (MD3LightTheme)
+│   ├── colors.ts              # Design system color palette tokens and theme declaration
 │   └── colors.test.ts         # Tests for color tokens and theme
 └── types/
     └── Task.ts                # Task interface (id, description, completed)
