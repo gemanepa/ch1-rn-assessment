@@ -10,7 +10,11 @@ interface TaskItemProps {
   onDelete: (id: string) => void;
 }
 
-export default function TaskItem({ item, onToggle, onDelete }: TaskItemProps) {
+const TaskItem = React.memo(function TaskItem({
+  item,
+  onToggle,
+  onDelete,
+}: TaskItemProps) {
   return (
     <View
       className={`bg-cosmic-card border rounded-[4px] mb-2 ${item.completed ? 'border-cosmic-cardBorder' : 'border-cosmic-inputBorder'}`}
@@ -57,4 +61,6 @@ export default function TaskItem({ item, onToggle, onDelete }: TaskItemProps) {
       />
     </View>
   );
-}
+});
+
+export default TaskItem;
