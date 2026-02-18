@@ -42,7 +42,7 @@ export default function AddTask({ onAdd }: AddTaskProps) {
           testID="add-button"
           buttonColor="#A78BFA"
           textColor={CosmicColors.textPrimary}
-          style={{ borderRadius: 10 }}
+          style={{ borderRadius: 4 }}
           contentStyle={{ height: 42, justifyContent: 'center' }}
           theme={{
             colors: {

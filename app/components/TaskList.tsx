@@ -107,7 +107,7 @@ export default function TaskList({ tasks, onToggle, onDelete }: TaskListProps) {
               ? CosmicColors.cardBorder
               : CosmicColors.inputBorder,
             borderWidth: 1,
-            borderRadius: 12,
+            borderRadius: 4,
             marginBottom: 8,
             shadowColor: CosmicColors.primary,
             shadowOffset: { width: 0, height: 2 },
