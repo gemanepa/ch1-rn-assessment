@@ -10,7 +10,7 @@ describe('Index screen', () => {
 
   it('renders empty state message when no tasks exist', () => {
     render(<Index />);
-    expect(screen.getByText('No tasks yet. Add one above!')).toBeTruthy();
+    expect(screen.getByText('No tasks yet')).toBeTruthy();
   });
 
   it('renders the Add button', () => {
@@ -26,7 +26,7 @@ describe('Index screen', () => {
     fireEvent.press(screen.getByTestId('add-button'));
 
     expect(screen.getByText('Buy groceries')).toBeTruthy();
-    expect(screen.queryByText('No tasks yet. Add one above!')).toBeNull();
+    expect(screen.queryByText('No tasks yet')).toBeNull();
   });
 
   it('clears the input after adding a task', () => {
@@ -46,7 +46,7 @@ describe('Index screen', () => {
     fireEvent.changeText(input, '   ');
     fireEvent.press(screen.getByTestId('add-button'));
 
-    expect(screen.getByText('No tasks yet. Add one above!')).toBeTruthy();
+    expect(screen.getByText('No tasks yet')).toBeTruthy();
   });
 
   it('adds multiple tasks and displays them all', () => {

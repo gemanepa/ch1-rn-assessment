@@ -6,7 +6,7 @@ import { Task } from '@/types/Task';
 describe('TaskList component', () => {
   it('renders empty state message when there are no tasks', () => {
     render(<TaskList tasks={[]} onToggle={jest.fn()} onDelete={jest.fn()} />);
-    expect(screen.getByText('No tasks yet. Add one above!')).toBeTruthy();
+    expect(screen.getByText('No tasks yet')).toBeTruthy();
   });
 
   it('renders a single task', () => {
@@ -38,7 +38,7 @@ describe('TaskList component', () => {
     render(
       <TaskList tasks={tasks} onToggle={jest.fn()} onDelete={jest.fn()} />,
     );
-    expect(screen.queryByText('No tasks yet. Add one above!')).toBeNull();
+    expect(screen.queryByText('No tasks yet')).toBeNull();
   });
 
   it('calls onToggle with the task id when checkbox is pressed', () => {
